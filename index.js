@@ -38,8 +38,11 @@ module.exports = {
 
           // Create header
           const header = element('div', { class: 'api-header' }, container)
-          if (block.kwargs.method) { element('small', { text: block.kwargs.method, class: block.kwargs.method.toLowerCase() }, header) }
-          element('h2', { text: block.args[0] }, header)
+          if (block.kwargs.method) { 
+            element('h2', { text: block.kwargs.method + " : " + block.args[0], class: block.kwargs.method.toLowerCase() }, header) 
+          } else {
+            element('h2', { text: block.args[0] }, header) 
+          }
           if (block.kwargs.url) { element('span', { text: block.kwargs.url }, header) }
 
           // Create content section
